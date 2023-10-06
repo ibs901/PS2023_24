@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aseguradora>
+
+	<cliente dni="12345678S" nombre="Andrés Ortega" minusvalia="true">
+		<seguro cobertura="TODORIESGO" matricula="PLL9597" potencia="75" fecha="2022-01-01"/>
+	</cliente>
+
+	<cliente nombre="Pablo López" dni="12345678F" minusvalia="false">
+		<seguro cobertura="TODORIESGO" matricula="PLX9597" potencia="105" fecha="2005-09-18"/>
+		<seguro cobertura="TERCEROS" matricula="PLX9797" potencia="60" fecha="2021-02-12"/>	
+	</cliente>
+
+	<cliente nombre="Lucía Rodriguez" dni="12345678V" minusvalia="false">
+		<seguro cobertura="TERCEROSLUNAS" matricula="JLL9551" potencia="150" fecha="2012-10-23"/>
+	</cliente>
+
+</aseguradora>

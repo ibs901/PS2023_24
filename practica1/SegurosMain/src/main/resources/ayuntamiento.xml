@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ayuntamiento xmlns="http://www.unican.es/ps/ImpuestoCirculacion">
+	<contribuyente nombre="Alba" apellido1="Muñiz" apellido2="López" dni="11111111A">
+		<turismo potencia="11.0" matricula="3441DDB" fechaMatriculacion="2009-01-01+01:00" />
+		<motocicleta cilindrada="1200" matricula="1232HHT" fechaMatriculacion="2012-11-12+01:00" />
+	</contribuyente>
+	<contribuyente nombre="Pepito" apellido1="Grillo" apellido2="Saltamontes" dni="22222222B">
+		<turismo potencia="22.0" matricula="3247BBD" fechaMatriculacion="2005-01-01+01:00" />
+		<motocicleta cilindrada="1200" matricula="9224HGH"
+			fechaMatriculacion="2012-05-22+02:00" />
+		<furgoneta potencia="15.0" comercial="true" matricula="3680DBD"
+			fechaMatriculacion="2014-01-01+01:00" />
+	</contribuyente>
+	<contribuyente nombre="Aitor" apellido1="Menta"	apellido2="Perez" dni="33333333C">
+		<turismo potencia="3.0" matricula="7847GGD"
+			fechaMatriculacion="2012-11-01+01:00" />
+		<motocicleta cilindrada="250" matricula="9147HDD"
+			fechaMatriculacion="2009-05-22+02:00" />
+		<turismo potencia="19.0" matricula="4893DBD"
+			fechaMatriculacion="2011-01-01+01:00" />
+	</contribuyente>
+	<contribuyente nombre="Amador" apellido1="Rivas" apellido2="Cobo" dni="44444444D">
+		<turismo potencia="17.0" matricula="9424BGD"
+			fechaMatriculacion="2004-12-01+01:00" />
+		<motocicleta cilindrada="600" matricula="1687HGD"
+			fechaMatriculacion="2011-05-12+02:00" />
+	</contribuyente>
+	<contribuyente nombre="Jorge" apellido1="Marquez" apellido2="Pedrosa" dni="55555555E">
+		<motocicleta cilindrada="120" matricula="1237HTD"
+			fechaMatriculacion="2009-03-11+01:00" />
+		<motocicleta cilindrada="500" matricula="2807GFT"
+			fechaMatriculacion="2014-05-18+02:00" />
+	</contribuyente>
+	<contribuyente nombre="Segismundo" apellido1="Lopez" apellido2="Revuelta" dni="66666666F">
+	</contribuyente>
+</ayuntamiento>
