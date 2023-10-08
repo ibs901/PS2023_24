@@ -13,8 +13,8 @@ import java.nio.file.StandardCopyOption;
 import java.time.LocalDate;
 
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import es.unican.ps.seguros.businessLayer.GestionSeguros;
@@ -38,20 +38,20 @@ class RunnerTest {
 	static IClientesDAO daoClientes;
 	static ISegurosDAO daoSeguros;
 	static GestionSeguros negocio;
-	
+
 	static Seguro seguroNoExistente;
 	static Seguro seguroNoExistente2;
 	static Seguro seguroExistente;
 
 	static GestionSeguros gestionSeguros;
-	
-	@BeforeAll
-	public static void init(){
+
+	@BeforeEach
+	public void init(){
 		backup(DATOS, DATOS_BACKUP);
 		daoClientes = new ClientesDAO();
 		daoSeguros = new SegurosDAO();
 		gestionSeguros = new GestionSeguros(daoClientes, daoSeguros);
-		
+
 		seguroExistente = daoSeguros.seguro("PLL9597");
 		try {
 			seguroNoExistente = new Seguro(100, "2020AAA", Cobertura.TODORIESGO, LocalDate.now());
@@ -61,8 +61,8 @@ class RunnerTest {
 		}
 	}
 
-	@AfterAll
-	public static void end(){
+	@AfterEach
+	public void end(){
 		backup(DATOS_BACKUP, DATOS);
 		File f = new File(DATOS_BACKUP);
 		f.delete();
@@ -72,26 +72,27 @@ class RunnerTest {
 	public void nuevoSeguroTest(){
 		// Operacion correcta
 		assertEquals(gestionSeguros.nuevoSeguro(seguroNoExistente, "12345678S"), seguroNoExistente);
-		
-		// Cliente no exitente
+
+		// Cliente no exitente 
+		// Aunque en el plan de pruebas se busque el "2020AAA", utilizo uno distinto porque se ha añadido en el caso de prueba anterior
 		assertNull(gestionSeguros.nuevoSeguro(seguroNoExistente2, "77777777G"));
-		
-		// El seguro ya existe (Utilizo seguroNoExistente porque se ha añadido anteriormente)
-		assertThrows(OperacionNoValida.class, () -> gestionSeguros.nuevoSeguro(seguroNoExistente, "12345678S"));
+
+		// El seguro ya existe
+		assertThrows(OperacionNoValida.class, () -> gestionSeguros.nuevoSeguro(seguroExistente, "12345678S"));
 
 	}
-	
+
 	@Test
 	public void eliminaSeguroTest(){
 		//Operacion correcta
 		assertEquals(gestionSeguros.bajaSeguro("PLL9597", "12345678S"), seguroExistente);
-		
+
 		// Seguro no existente
 		assertNull(gestionSeguros.bajaSeguro("2020AAA", "77777777G"));
 
 		// Cliente no existente
 		assertNull(gestionSeguros.bajaSeguro("PLL9597", "77777777G"));
-		
+
 		// Cliente y seguro no existente
 		assertNull(gestionSeguros.bajaSeguro("2020AAA", "77777777G"));
 

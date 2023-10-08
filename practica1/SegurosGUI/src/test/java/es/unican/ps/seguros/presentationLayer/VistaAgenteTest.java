@@ -22,9 +22,9 @@ import es.unican.ps.seguros.domain.Seguro;
 
 
 public class VistaAgenteTest {
-	
+
 	private FrameFixture demo;
-	
+
 	@Mock
 	private IGestionClientes mockClientes;
 	@Mock
@@ -52,7 +52,7 @@ public class VistaAgenteTest {
 			e.printStackTrace();
 		}
 		clienteExistente.getSeguros().add(seguroExistente);
-		
+
 		// Añadimos los comportamientos correctos de los mocks
 		when(mockInfo.cliente("12345678S")).thenReturn(clienteExistente);
 		when(mockInfo.cliente("77777777G")).thenReturn(null);
@@ -69,7 +69,7 @@ public class VistaAgenteTest {
 		// Comprobamos que la interfaz tiene el aspecto deseado
 		demo.button("btnBuscar").requireText("Buscar");
 
-		// Probar caso valido DNI registrado
+		// DNI registrado
 		demo.textBox("txtDNICliente").setText("12345678S");
 		demo.button("btnBuscar").click();
 		demo.textBox("txtNombreCliente").requireText("Andres Ortega");
@@ -78,7 +78,7 @@ public class VistaAgenteTest {
 		// Ademas hay un problema en el segundo else if de precio que se utiliza mal la estructura añadiendo un ; al final
 
 
-		// Probar caso DNI no existente
+		// DNI no existente
 		demo.textBox("txtDNICliente").setText("77777777G");
 		demo.button("btnBuscar").click();
 		demo.textBox("txtNombreCliente").requireText("DNI No Valido"); // La tilde daba un problema se ha decidido quitarla
@@ -90,7 +90,6 @@ public class VistaAgenteTest {
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
